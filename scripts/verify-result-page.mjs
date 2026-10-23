@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { showcaseProjects as projectData } from "../src/pages/showcaseProjects.js";
 
 const root = resolve(import.meta.dirname, "..");
 
@@ -41,8 +42,11 @@ for (const id of ["visual-draft-editor", "bitmap-to-vector", "esports-data-platf
   assertIncludes(showcaseProjects, `id: "${id}"`, `${id} project`);
 }
 assertNotIncludes(showcaseProjects, "皇帝电竞", "private client brand");
-for (const name of ["visual-draft-editor.png", "bitmap-to-vector.png", "esports-data-platform.jpg"]) {
-  if (!existsSync(resolve(root, "public/projects", name))) throw new Error(`Missing project image: ${name}`);
+for (const project of projectData) {
+  if (!project.image.startsWith("/projects/")) throw new Error(`Invalid project image path: ${project.image}`);
+  if (!existsSync(resolve(root, "public", project.image.slice(1)))) {
+    throw new Error(`Missing project image: ${project.image}`);
+  }
 }
 
 assertIncludes(homePage, "上传图片转 SVG", "vector upload page title");
