@@ -23,8 +23,8 @@ export const showcaseProjects = [
     background: "位图在放大和二次编辑时容易失真。这个工具把上传、路径生成、预览与导出串成一个可操作的 Web 流程。",
     highlights: ["上传图形并生成矢量路径", "预览与调整处理结果", "导出 SVG、PNG 预览和 PDF"],
     tech: ["React", "FastAPI", "SVG", "Computer Vision"],
-    image: "/projects/bitmap-to-vector.png",
-    imageAlt: "位图图形逐步转为可编辑矢量路径与 SVG 文件的过程",
+    image: "/projects/bitmap-to-vector-tool-ui.png",
+    imageAlt: "印前与标签图形小工具页面，展示位图转矢量图入口及适用素材",
     mediaCaption: "02 / BITMAP TO VECTOR",
     action: "vector",
     githubUrl: "https://github.com/ryota-kk/svg.tool"
